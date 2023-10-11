@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net7.0-ios</TargetFramework>
+    <TargetFramework>net8.0-ios</TargetFramework>
     <OutputType>Exe</OutputType>
     <Nullable>enable</Nullable>
     <SupportedOSPlatformVersion>13.0</SupportedOSPlatformVersion>
@@ -11,7 +11,7 @@
     <SkipValidateMauiImplicitPackageReferences>true</SkipValidateMauiImplicitPackageReferences>
 
     <!-- silk.net versions, sources, etc -->
-    <SilkNETVersion>2.17.1-build3849.0</SilkNETVersion>
+    <SilkNETVersion>2.17.1-build3881.0</SilkNETVersion>
     <SDLVersion>2.24.3.2</SDLVersion>
     <SilkEnableStaticLinking>true</SilkEnableStaticLinking>
     <RollForward>LatestMinor</RollForward> <!-- for testing new .net runtime -->
