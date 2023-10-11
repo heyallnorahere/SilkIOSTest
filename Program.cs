@@ -5,6 +5,8 @@ using System.Text;
 using System;
 using System.Runtime.InteropServices;
 
+using Sdl = Silk.NET.SDL.Sdl;
+
 namespace SilkIOSTest
 {
     internal static class Program
@@ -17,13 +19,24 @@ namespace SilkIOSTest
 
         public static void Main()
         {
-            var options = WindowOptions.DefaultVulkan with
+            Console.WriteLine($"Runtime version: {Environment.Version}");
+
+            /*
+            var ctx = Sdl.CreateDefaultContext("__Internal");
+            var sdl = new Sdl(ctx);
+
+            if (!ctx.TryGetProcAddress("SDL_GetPlatform", out nint getPlatform))
             {
-                Title = "Silk.NET iOS test", // don't even know if this matters on ios sdl lmao
-            };
+                Console.WriteLine("Failed to find function");
+            }
+            else
+            {
+                Console.WriteLine($"Found SDL_GetPlatform: {getPlatform:X}");
+            }
+            */
 
             SdlWindowing.RegisterPlatform();
-            using var window = Window.Create(options);
+            using var window = Window.GetView(ViewOptions.DefaultVulkan);
 
             window.Load += OnLoad;
             window.Run();

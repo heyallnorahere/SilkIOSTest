@@ -1,21 +1,33 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net7.0-ios</TargetFramework>
+    <TargetFramework>net8.0-ios</TargetFramework>
     <OutputType>Exe</OutputType>
     <Nullable>enable</Nullable>
     <SupportedOSPlatformVersion>13.0</SupportedOSPlatformVersion>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <UseMaui>true</UseMaui>
+    <TrimMode>full</TrimMode>
 
     <!-- silk.net versions, sources, etc -->
-    <RestoreSources>$(RestoreSources);https://dotnet.github.io/Silk.NET/nuget/experimental/index.json</RestoreSources>
     <SilkNETVersion>2.17.1-build3849.0</SilkNETVersion>
     <SDLVersion>2.24.3.2</SDLVersion>
+    <SilkEnableStaticLinking>true</SilkEnableStaticLinking>
+    <RollForward>LatestMinor</RollForward> <!-- for testing new .net runtime -->
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Silk.NET.Vulkan" Version="$(SilkNETVersion)" />
-    <PackageReference Include="Silk.NET.Windowing" Version="$(SilkNETVersion)" />
+    <PackageReference Include="Silk.NET.Vulkan" Version="$(SilkNETVersion)">
+      <IncludeAssets>all</IncludeAssets>
+    </PackageReference>
+
+    <PackageReference Include="Silk.NET.Windowing" Version="$(SilkNETVersion)">
+      <IncludeAssets>all</IncludeAssets>
+    </PackageReference>
+
+    <PackageReference Include="Silk.NET.SDL" Version="$(SilkNETVersion)">
+      <IncludeAssets>all</IncludeAssets>
+    </PackageReference>
 
     <PackageReference Include="Silk.NET.MoltenVK.Native" Version="$(SilkNETVersion)">
       <IncludeAssets>all</IncludeAssets>
