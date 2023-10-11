@@ -1,13 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0-ios</TargetFramework>
+    <TargetFramework>net7.0-ios</TargetFramework>
     <OutputType>Exe</OutputType>
     <Nullable>enable</Nullable>
     <SupportedOSPlatformVersion>13.0</SupportedOSPlatformVersion>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <UseMaui>true</UseMaui>
     <TrimMode>full</TrimMode>
+    <UseMaui>true</UseMaui>
+    <SkipValidateMauiImplicitPackageReferences>true</SkipValidateMauiImplicitPackageReferences>
 
     <!-- silk.net versions, sources, etc -->
     <SilkNETVersion>2.17.1-build3849.0</SilkNETVersion>
@@ -18,6 +19,10 @@
 
   <ItemGroup>
     <PackageReference Include="Silk.NET.Vulkan" Version="$(SilkNETVersion)">
+      <IncludeAssets>all</IncludeAssets>
+    </PackageReference>
+
+    <PackageReference Include="Silk.NET.Vulkan.Extensions.KHR" Version="$(SilkNETVersion)">
       <IncludeAssets>all</IncludeAssets>
     </PackageReference>
 
